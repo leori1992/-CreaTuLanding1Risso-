@@ -1,0 +1,30 @@
+.navbar {
+    background-color: #333;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Sombra para dar profundidad */
+    border-radius: 8px; /* Bordes redondeados */
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center; /* Centra los enlaces horizontalmente */
+    gap: 2rem; /* Espaciado entre los enlaces */
+    padding: 0;
+    margin: 0;
+  }
+  
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem; /* Tamaño de fuente más grande */
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.3s ease; /* Animación suave */
+  }
+  
+  .nav-links a:hover {
+    color: #ff9800; /* Cambia el color al pasar el cursor */
+    transform: scale(1.1); /* Aumenta ligeramente el tamaño */
+    text-shadow: 0 0 5px rgba(255, 152, 0, 0.8); /* Efecto de brillo */
+  }

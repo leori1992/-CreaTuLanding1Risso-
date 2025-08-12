@@ -1,0 +1,28 @@
+.item-list-container {
+    
+    text-align: center;
+  }
+  
+  .productos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 4 columnas */
+    gap: 1rem; /* Espaciado entre los elementos */
+    margin-top: 2rem;
+  }
+  
+  .producto-item {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .producto-imagen {
+    width: 300px;
+    height: 300px;
+    object-fit: cover; 
+    margin-bottom: 0.5rem;
+  }
+  

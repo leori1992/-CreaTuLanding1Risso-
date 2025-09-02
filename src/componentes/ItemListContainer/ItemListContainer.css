@@ -1,28 +1,75 @@
+
+
+
 .item-list-container {
-    
-    text-align: center;
-  }
+  text-align: center;
+}
+
+.productos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+  gap: 2rem; /* Aumenta el espacio entre las celdas */
+  padding: 2rem; /* Espaciado interno alrededor de la grilla */
+  width: 90%;
   
-  .productos-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 4 columnas */
-    gap: 1rem; /* Espaciado entre los elementos */
-    margin-top: 2rem;
-  }
-  
-  .producto-item {
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 1rem;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .producto-imagen {
-    width: 300px;
-    height: 300px;
-    object-fit: cover; 
-    margin-bottom: 0.5rem;
-  }
-  
+}
+
+.producto-item {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1.5rem; /* Aumenta el espacio interno de cada celda */
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.producto-imagen {
+  width: 700px; /* Aumenta el ancho de la imagen */
+  height: 700px; /* Aumenta el alto de la imagen */
+  object-fit: contain; /* Ajusta la imagen dentro del contenedor */
+  margin-bottom: 1rem; /* Espaciado entre la imagen y el texto */
+}
+.producto-item {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column; /* Asegura que los elementos estén en columna */
+  align-items: center; /* Centra los elementos horizontalmente */
+}
+
+.producto-imagen {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+.toggle-button {
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: inline-block; /* Asegura que el botón sea visible */
+}
+
+.toggle-button:hover {
+  background-color: #0056b3;
+}
+
+.descripcion {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: #333;
+}

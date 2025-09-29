@@ -73,3 +73,140 @@
   font-size: 0.9rem;
   color: #333;
 }
+
+
+.contador {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.contador-controles {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.contador-boton {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.contador-boton:hover {
+  background-color: #0056b3;
+}
+
+.contador-cantidad {
+  margin: 0 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.contador-agregar {
+  background-color: #3d4c9e;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.contador-agregar:hover {
+  background-color: #3f4d42;
+}
+
+.mensaje-agregado {
+  margin-top: 0.5rem;
+  color: #28a745;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+
+.item-list-container {
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+}
+
+.productos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 1.5rem;
+}
+
+.producto-item {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.producto-imagen {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.producto-nombre {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
+
+.producto-precio {
+  font-size: 1rem;
+  color: #28a745;
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
+
+.producto-descripcion {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 0.5rem 0;
+}
+
+.producto-stock {
+  font-size: 0.9rem;
+  color: #888;
+  margin: 0.5rem 0;
+}
+
+.toggle-button {
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.toggle-button:hover {
+  background-color: #0056b3;
+}
+
+.mensaje-agregado {
+  margin-top: 0.5rem;
+  color: #28a745;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.total-container {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}

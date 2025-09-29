@@ -47,3 +47,25 @@
 .carrito-imagen:hover {
   transform: scale(1.2); /* Aumenta ligeramente el tamaño al pasar el cursor */
 }
+
+.navbar-logo {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar-logo {
+background-color: black;
+
+}
+
+.logo-rejal {
+  width: 600px;
+  height: 350px;
+  ;
+}

@@ -3,13 +3,15 @@ import { useCart } from "../Context/CartContext"; // Usa el contexto del carrito
 import "./Cart.css";
 
 function Cart() {
-  const { cart, removeFromCart, clearCart } = useCart(); // Obtén las funciones del contexto
+  const { cart, removeFromCart, confirmPurchase } = useCart(); // Obtén las funciones del contexto
 
   const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0); // Calcula el total
 
   const handleConfirmPurchase = () => {
-    alert("¡Compra confirmada! Gracias por tu compra.");
-    clearCart(); // Limpia el carrito después de confirmar la compra
+    const success = confirmPurchase(); // Usa la nueva función confirmPurchase
+    if (success) {
+      alert("¡Compra confirmada! Gracias por tu compra.");
+    }
   };
 
   return (

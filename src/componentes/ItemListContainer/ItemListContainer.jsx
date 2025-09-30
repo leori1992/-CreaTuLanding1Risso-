@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import ProductCard from "./descripcion"; // Importa el componente ProductCard
+import GenderFilter from "./GenderFilter"; // Importa el componente de filtro
 import "./ItemListContainer.css";
-import { collection, getDocs } from "firebase/firestore"; // Importa Firestore
+import { collection, getDocs, query, where } from "firebase/firestore"; // Importa Firestore
 import { db } from "../utilidades/firebase"; // Importa la configuración de Firebase
 
 function ItemListContainer() {
   const [products, setProducts] = useState([]); // Estado para almacenar los productos
+  const [filteredProducts, setFilteredProducts] = useState([]); // Estado para productos filtrados
   const [loading, setLoading] = useState(true); // Estado para manejar el cargando
+  const [selectedGender, setSelectedGender] = useState("todos"); // Estado para el género seleccionado
 
   // Función para obtener todos los productos desde Firestore
   useEffect(() => {
@@ -20,6 +23,7 @@ function ItemListContainer() {
           ...doc.data(),
         })); // Mapea los documentos a un array de objetos
         setProducts(productsData); // Guarda los productos en el estado
+        setFilteredProducts(productsData); // Inicialmente muestra todos los productos
       } catch (error) {
         console.error("Error al obtener los productos:", error);
       } finally {
@@ -29,6 +33,19 @@ function ItemListContainer() {
 
     fetchProducts();
   }, []);
+
+  // Función para filtrar productos por género
+  const handleGenderChange = (gender) => {
+    setSelectedGender(gender);
+    
+    if (gender === "todos") {
+      setFilteredProducts(products); // Muestra todos los productos
+    } else {
+      // Filtra los productos por género
+      const filtered = products.filter(product => product.genero === gender);
+      setFilteredProducts(filtered);
+    }
+  };
 
   if (loading) {
     return <p>Cargando productos...</p>; // Muestra un mensaje mientras se cargan los productos
@@ -41,14 +58,25 @@ function ItemListContainer() {
   return (
     <div className="item-list-container">
       <h1>Lista de Productos</h1>
-      <div className="productos-grid">
-        {products.map((product) => (
-          <ProductCard
-            key={product.id}
-            product={product} // Pasa cada producto como prop
-          />
-        ))}
-      </div>
+      
+      {/* Componente de filtro por género */}
+      <GenderFilter 
+        selectedGender={selectedGender} 
+        onGenderChange={handleGenderChange} 
+      />
+      
+      {filteredProducts.length === 0 ? (
+        <p>No se encontraron productos para el género seleccionado.</p>
+      ) : (
+        <div className="productos-grid">
+          {filteredProducts.map((product) => (
+            <ProductCard
+              key={product.id}
+              product={product} // Pasa cada producto como prop
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }

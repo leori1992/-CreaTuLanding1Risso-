@@ -244,3 +244,103 @@
   color: white;
   border-color: #3d4c9e;
 }
+
+/* Estilos para el formulario de checkout */
+.checkout-form-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.checkout-total {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #3d4c9e;
+  text-align: right;
+  margin-top: 1rem;
+}
+
+.checkout-button {
+  background-color: #3d4c9e;
+  color: white;
+  padding: 1rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.checkout-button:hover {
+  background-color: #2d3a7d;
+}
+
+.checkout-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.error-message {
+  color: #e74c3c;
+  background-color: #fadbd8;
+  padding: 0.8rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.checkout-success {
+  text-align: center;
+  padding: 2rem;
+  background-color: #d4edda;
+  border-radius: 8px;
+  margin: 2rem auto;
+  max-width: 600px;
+}
+
+.checkout-success h2 {
+  color: #28a745;
+  margin-bottom: 1rem;
+}
+
+.checkout-success strong {
+  font-size: 1.2rem;
+  background-color: #fff;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  display: inline-block;
+  margin: 0.5rem 0;
+}

@@ -1,17 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { useCart } from "../Context/CartContext"; // Usa el contexto del carrito
+import CheckoutForm from "../ItemCarrito/CheckoutForm"; // Importa el formulario de checkout
 import "./Cart.css";
 
 function Cart() {
-  const { cart, removeFromCart, confirmPurchase } = useCart(); // Obtén las funciones del contexto
+  const { cart, removeFromCart } = useCart(); // Obtén las funciones del contexto
+  const [showCheckoutForm, setShowCheckoutForm] = useState(false);
 
   const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0); // Calcula el total
 
-  const handleConfirmPurchase = () => {
-    const success = confirmPurchase(); // Usa la nueva función confirmPurchase
-    if (success) {
-      alert("¡Compra confirmada! Gracias por tu compra.");
-    }
+  const handleProceedToCheckout = () => {
+    setShowCheckoutForm(true);
   };
 
   return (
@@ -19,6 +18,8 @@ function Cart() {
       <h1>Carrito de Compras</h1>
       {cart.length === 0 ? (
         <p>El carrito está vacío.</p>
+      ) : showCheckoutForm ? (
+        <CheckoutForm />
       ) : (
         <>
           <ul className="cart-items">
@@ -43,8 +44,8 @@ function Cart() {
           <div className="cart-total">
             <h2>Total de la compra: ${total.toLocaleString()}</h2>
           </div>
-          <button className="confirm-button" onClick={handleConfirmPurchase}>
-            Confirmar Compra
+          <button className="confirm-button" onClick={handleProceedToCheckout}>
+            Proceder al Pago
           </button>
         </>
       )}

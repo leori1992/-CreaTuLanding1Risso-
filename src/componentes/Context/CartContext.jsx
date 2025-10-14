@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext } from "react";
+import React, { createContext, useState, useContext, useEffect } from "react";
 import { doc, updateDoc, getDoc } from "firebase/firestore";
 import { db } from "../utilidades/firebase";
 
@@ -7,8 +7,17 @@ const CartContext = createContext();
 export const useCart = () => useContext(CartContext);
 
 export const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState([]);
+  // Inicializar el carrito desde localStorage si existe
+  const [cart, setCart] = useState(() => {
+    const savedCart = localStorage.getItem('cart');
+    return savedCart ? JSON.parse(savedCart) : [];
+  });
   const [stockReduced, setStockReduced] = useState(true); // Por defecto, el stock se reduce al agregar al carrito
+  
+  // Guardar el carrito en localStorage cada vez que cambie
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }, [cart]);
 
   // Función para agregar productos al carrito
   const addToCart = (product, quantity) => {

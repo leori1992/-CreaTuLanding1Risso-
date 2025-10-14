@@ -36,10 +36,10 @@ function Home() {
       <div className="categories-section">
         <h2>Categorías Destacadas</h2>
         <div className="categories">
-          <Link to="/productos" className="category-card">
+          <Link to="/productos?genero=hombre" className="category-card">
             <div className="category-name">Hombre</div>
           </Link>
-          <Link to="/productos" className="category-card">
+          <Link to="/productos?genero=mujer" className="category-card">
             <div className="category-name">Mujer</div>
           </Link>
         </div>

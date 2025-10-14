@@ -147,6 +147,22 @@
   border-radius: 8px;
   padding: 1rem;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.producto-hombre, .producto-mujer {
+  /* Estilos eliminados para quitar diferenciación visual */
+}
+
+.producto-badge {
+  display: none; /* Ocultar el badge */
+}
+
+.producto-genero {
+  font-weight: bold;
+  margin: 5px 0;
+  color: #555;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 

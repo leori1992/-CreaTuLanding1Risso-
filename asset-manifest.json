@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/-CreaTuLanding1Risso-/static/css/main.ccf92602.css",
+    "main.js": "/-CreaTuLanding1Risso-/static/js/main.2662da14.js",
+    "static/js/453.6236ba0a.chunk.js": "/-CreaTuLanding1Risso-/static/js/453.6236ba0a.chunk.js",
+    "static/media/logoRejal.jpg": "/-CreaTuLanding1Risso-/static/media/logoRejal.9081d0e4c88b4dcd748d.jpg",
+    "static/media/carrito.jpg": "/-CreaTuLanding1Risso-/static/media/carrito.2dddaa213afe8c1add8d.jpg",
+    "index.html": "/-CreaTuLanding1Risso-/index.html",
+    "main.ccf92602.css.map": "/-CreaTuLanding1Risso-/static/css/main.ccf92602.css.map",
+    "main.2662da14.js.map": "/-CreaTuLanding1Risso-/static/js/main.2662da14.js.map",
+    "453.6236ba0a.chunk.js.map": "/-CreaTuLanding1Risso-/static/js/453.6236ba0a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ccf92602.css",
+    "static/js/main.2662da14.js"
+  ]
+}

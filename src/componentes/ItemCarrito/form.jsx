@@ -5,7 +5,7 @@ function Contador({ stock, onAddToCart }) {
   const [count, setCount] = useState(1);
 
   const handleIncrement = () => {
-    if (count < stock) {
+    if (stock == null || count < stock) {
       setCount(count + 1);
     }
   };

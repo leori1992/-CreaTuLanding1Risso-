@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ProductCard from "./descripcion"; // Importa el componente ProductCard
 import GenderFilter from "./GenderFilter"; // Importa el componente de filtro
 import "./ItemListContainer.css";
-import { collection, getDocs, query, where } from "firebase/firestore"; // Importa Firestore
+import { collection, getDocs } from "firebase/firestore"; // Importa Firestore
 import { db } from "../utilidades/firebase"; // Importa la configuración de Firebase
 import { useLocation } from "react-router-dom"; // Importa useLocation para acceder a los parámetros de URL
 

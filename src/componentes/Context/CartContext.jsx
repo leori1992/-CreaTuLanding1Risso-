@@ -1,6 +1,5 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
-import { doc, updateDoc, getDoc } from "firebase/firestore";
-import { db } from "../utilidades/firebase";
+// Se elimina la sincronización con Firebase
 
 const CartContext = createContext();
 
@@ -20,47 +19,24 @@ export const CartProvider = ({ children }) => {
   }, [cart]);
 
   // Función para agregar productos al carrito
-  const addToCart = (product, quantity) => {
+  const addToCart = (product, quantity, size) => {
     setCart((prevCart) => {
-      const existingProduct = prevCart.find((item) => item.id === product.id);
+      const existingProduct = prevCart.find((item) => item.id === product.id && item.size === size);
       if (existingProduct) {
         return prevCart.map((item) =>
-          item.id === product.id
+          item.id === product.id && item.size === size
             ? { ...item, quantity: item.quantity + quantity }
             : item
         );
       } else {
-        return [...prevCart, { ...product, quantity }];
+        return [...prevCart, { ...product, quantity, size }];
       }
     });
   };
 
-  // Función para eliminar productos del carrito y recuperar el stock
-  const removeFromCart = async (id) => {
-    // Buscar el producto en el carrito antes de eliminarlo
-    const productToRemove = cart.find(item => item.id === id);
-    
-    if (productToRemove) {
-      try {
-        // Obtener el documento actual de Firestore para conocer el stock actual
-        const productRef = doc(db, "products", id);
-        const productSnap = await getDoc(productRef);
-        
-        if (productSnap.exists()) {
-          const currentStock = productSnap.data().stock;
-          // Actualizar el stock en Firestore sumando la cantidad que estaba en el carrito
-          await updateDoc(productRef, { 
-            stock: currentStock + productToRemove.quantity 
-          });
-          console.log(`Stock recuperado para el producto ${id}: ${currentStock + productToRemove.quantity}`);
-        }
-      } catch (error) {
-        console.error("Error al recuperar el stock:", error);
-      }
-    }
-    
-    // Eliminar el producto del carrito
-    setCart((prevCart) => prevCart.filter((item) => item.id !== id));
+  // Función para eliminar productos del carrito (sin sincronización)
+  const removeFromCart = (id, size) => {
+    setCart((prevCart) => prevCart.filter((item) => !(item.id === id && item.size === size)));
   };
 
   // Función para finalizar la compra
